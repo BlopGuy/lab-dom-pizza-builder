@@ -66,10 +66,29 @@ function renderGreenPeppers() {
 
 function renderWhiteSauce() {
   // Iteration 2: add/remove the class "sauce-white" of `<section class="sauce">`
+  let sauce = document.querySelector('.sauce');
+  switch (state.whiteSauce) {
+    case false:
+      sauce.classList.remove("sauce-white");
+      break;
+    case true:
+      sauce.classList.add("sauce-white");
+      break;
+  }
 }
 
 function renderGlutenFreeCrust() {
   // Iteration 2: add/remove the class "crust-gluten-free" of `<section class="crust">`
+  let crust = document.querySelector('.crust');
+  switch (state.glutenFreeCrust) {
+    case false:
+      crust.classList.remove("crust-gluten-free");
+      break;
+    case true:
+      crust.classList.add("crust-gluten-free");
+      break;
+  }
+
 }
 
 function renderButtons() {
@@ -88,21 +107,26 @@ document.querySelector('.btn.btn-pepperoni').addEventListener('click', () => {
   renderEverything();
 });
 
+// Iteration 1: Add click event listener on `<button class="btn btn-mushrooms">`
 document.querySelector('.btn.btn-mushrooms').addEventListener('click', () => {
   state.mushrooms = !state.mushrooms;
   renderEverything();
 });
 
+// Iteration 1: Add click event listener on `<button class="btn btn-green-peppers">`
 document.querySelector('.btn.btn-green-peppers').addEventListener('click', () => {
   state.greenPeppers = !state.greenPeppers;
   renderEverything();
 });
 
-
-// Iteration 1: Add click event listener on `<button class="btn btn-mushrooms">`
-
-// Iteration 1: Add click event listener on `<button class="btn btn-green-peppers">`
-
 // Iteration 2: Add click event listener on `<button class="btn btn-sauce">`
+document.querySelector('.btn.btn-sauce').addEventListener('click', () => {
+  state.whiteSauce = !state.whiteSauce;
+  renderEverything();
+});
 
 // Iteration 2: Add click event listener on `<button class="btn btn-crust">`
+document.querySelector('.btn.btn-crust').addEventListener('click', () => {
+  state.glutenFreeCrust = !state.glutenFreeCrust;
+  renderEverything();
+});
